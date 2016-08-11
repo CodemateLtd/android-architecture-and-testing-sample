@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/commentProfilePic"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/commentName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/commentProfilePic"
+            android:layout_toRightOf="@+id/commentProfilePic"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            tools:text="Commenter name" />
+
+        <TextView
+            android:id="@+id/commentEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/commentName"
+            android:layout_toEndOf="@+id/commentProfilePic"
+            android:layout_toRightOf="@+id/commentProfilePic"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            tools:text="email@sample.com" />
+
+        <TextView
+            android:id="@+id/commentBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/commentEmail"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/commentProfilePic"
+            android:layout_toRightOf="@+id/commentProfilePic"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            tools:text="Comment body" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

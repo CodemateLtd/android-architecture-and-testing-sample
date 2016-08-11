@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BlogReader</string>
+    <string name="view_error_title">Oopsy daisy!</string>
+    <string name="view_error_message">For some reason, we couldn\'t load data for you. :(</string>
+    <string name="view_error_button">Try again!</string>
+</resources>
