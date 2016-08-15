@@ -60,45 +60,38 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     // test dependencies
-    testCompile "junit:junit:$rootProject.ext.jUnitVersion"
-    testCompile "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
-    testCompile "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
-    testCompile "org.powermock:powermock-module-junit4:$rootProject.ext.powerMockito"
-    testCompile "org.powermock:powermock-api-mockito:$rootProject.ext.powerMockito"
+    testCompile jUnit
+    testCompile mockito
+    testCompile hamcrest
 
     // Android Testing Support Library's runner and rules
-    androidTestCompile "com.android.support.test:runner:$rootProject.ext.runnerVersion"
-    androidTestCompile "com.android.support.test:rules:$rootProject.ext.rulesVersion"
+    androidTestCompile supportTest.runner
+    androidTestCompile supportTest.rules
 
     // Espresso UI Testing dependencies.
-    androidTestCompile ("com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion") {
-        exclude module: 'support-annotations'
-        exclude module: 'support-v4'
-        exclude module: 'support-v13'
-        exclude module: 'recyclerview-v7'
+    androidTestCompile (supportTest.espressoCore) {
+        espressoExcludes.each { exclude module : "$it" }
     }
-    androidTestCompile ("com.android.support.test.espresso:espresso-contrib:$rootProject.ext.espressoVersion") {
-        exclude module: 'support-annotations'
-        exclude module: 'support-v4'
-        exclude module: 'support-v13'
-        exclude module: 'recyclerview-v7'
+
+    androidTestCompile (supportTest.espressoContrib) {
+        espressoExcludes.each { exclude module : "$it" }
     }
-    androidTestCompile ("com.android.support.test.espresso:espresso-intents:$rootProject.ext.espressoVersion") {
-        exclude module: 'support-annotations'
-        exclude module: 'support-v4'
-        exclude module: 'support-v13'
-        exclude module: 'recyclerview-v7'
+
+    androidTestCompile (supportTest.espressoIntents) {
+        espressoExcludes.each { exclude module : "$it" }
     }
 
     // app dependencies
-    apt "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
-    compile "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
-    provided 'javax.annotation:jsr250-api:1.0'
-    compile "com.android.support:appcompat-v7:$rootProject.ext.appCompatVersion"
-    compile "com.android.support:design:$rootProject.ext.designLibraryVersion"
-    compile "com.android.support:recyclerview-v7:$rootProject.ext.recyclerViewVersion"
-    compile "com.android.support:cardview-v7:$rootProject.ext.cardViewVersion"
-    compile "com.squareup.retrofit:retrofit:$rootProject.ext.retrofitVersion"
-    compile "io.reactivex:rxjava:$rootProject.ext.rxJavaVersion"
-    compile "io.reactivex:rxandroid:$rootProject.ext.rxAndroidVersion"
+    compile support.appcompat
+    compile support.design
+    compile support.recyclerview
+    compile support.cardview
+
+    apt daggerCompiler
+    compile dagger
+    provided jsr250
+
+    compile retrofit
+    compile rxJava
+    compile rxAndroid
 }
