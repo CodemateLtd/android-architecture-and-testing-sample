@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="All Mock Tests" type="CompoundRunConfigurationType" factoryName="Compound Run Configuration">
+    <toRun type="AndroidTestRunConfigurationType" name="Mock Instrumentation Tests" />
+    <toRun type="JUnit" name="Mock Unit Tests" />
+    <method />
+  </configuration>
+</component>

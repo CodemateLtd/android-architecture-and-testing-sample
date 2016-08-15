@@ -25,7 +25,7 @@ public class PostDetailActivityTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        MockIntentFactory.mockFactory(intent);
+        MockIntentFactory.startSpyingIntents(intent);
     }
 
     @Test
@@ -41,6 +41,6 @@ public class PostDetailActivityTest {
 
     @After
     public void tearDown() {
-        MockIntentFactory.reset();
+        MockIntentFactory.stopSpyingIntents();
     }
 }

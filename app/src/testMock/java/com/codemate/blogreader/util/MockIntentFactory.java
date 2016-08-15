@@ -11,20 +11,24 @@ import static org.mockito.Mockito.when;
  * Created by ironman on 05/08/16.
  */
 public class MockIntentFactory {
-    public static void mockFactory(Intent intent) {
+    public static void startSpyingIntents(Intent intent) {
         IntentFactory.instance = mockIntentFactory(intent);
     }
 
-    public static void reset() {
+    public static void stopSpyingIntents() {
         IntentFactory.instance = new IntentFactory();
     }
 
     private static IntentFactory mockIntentFactory(Intent intent) {
-        IntentFactory factory = mock(IntentFactory.class);
+        IntentFactory mockIntentFactory = mock(IntentFactory.class);
 
         //noinspection unchecked
-        when(factory.create(any(Context.class), (Class<? extends Context>) any())).thenReturn(intent);
+        when(
+                mockIntentFactory.makeIntent(
+                        any(Context.class), (Class<? extends Context>) any()
+                )
+        ).thenReturn(intent);
 
-        return factory;
+        return mockIntentFactory;
     }
 }
