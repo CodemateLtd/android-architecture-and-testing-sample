@@ -14,8 +14,8 @@ import dagger.Component;
 @Singleton
 @Component(modules = {AppModule.class})
 public interface AppComponent {
-    void inject(PostsActivity postsFragment);
-    void inject(PostDetailActivity postDetailFragment);
+    void inject(PostsActivity postsActivity);
+    void inject(PostDetailActivity postDetailActivity);
 
     final class Initializer {
         private Initializer(){
