@@ -20,7 +20,10 @@ import static org.mockito.Mockito.verify;
  */
 public class PostDetailActivityTest {
     @Mock
-    public Intent intent;
+    private Intent intent;
+
+    @Mock
+    private Context context;
 
     @Before
     public void setUp() {
@@ -31,7 +34,7 @@ public class PostDetailActivityTest {
     @Test
     public void intentCreatedProperly() {
         BlogPost post = new BlogPost(69, 1, "Test Post", "Test post body.");
-        Intent intent = PostDetailActivity.create(mock(Context.class), post);
+        Intent intent = PostDetailActivity.create(context, post);
 
         verify(intent).putExtra(PostDetailActivity.EXTRA_POST_USER_ID, post.userId);
         verify(intent).putExtra(PostDetailActivity.EXTRA_POST_ID, post.id);
