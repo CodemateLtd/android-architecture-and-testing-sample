@@ -1,4 +1,4 @@
-# MVP & Clean Architecture sample with Unit and Instrumentation tests
+# Android MVP & Clean Architecture sample with Unit and Instrumentation tests
 
 ## BlogReader App
 
