@@ -3,12 +3,10 @@ package com.codemate.blogreader.presentation.postdetails;
 import android.content.Intent;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.test.suitebuilder.annotation.LargeTest;
 
-import com.codemate.blogreader.R;
+import com.codemate.blogreader.FakeBlogApi;
 import com.codemate.blogreader.domain.model.BlogPost;
 import com.codemate.blogreader.domain.model.Comment;
-import com.codemate.blogreader.FakeBlogApi;
 
 import org.junit.Before;
 import org.junit.Rule;

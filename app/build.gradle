@@ -1,10 +1,9 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'jacoco'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId "com.codemate.blogreader"
@@ -24,6 +23,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "version"
+
     productFlavors{
         mock {
             applicationIdSuffix = ".mock"
@@ -57,41 +59,41 @@ configurations.all {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // test dependencies
-    testCompile jUnit
-    testCompile mockito
-    testCompile hamcrest
+    testImplementation jUnit
+    testImplementation mockito
+    testImplementation hamcrest
 
     // Android Testing Support Library's runner and rules
-    androidTestCompile supportTest.runner
-    androidTestCompile supportTest.rules
+    androidTestImplementation supportTest.runner
+    androidTestImplementation supportTest.rules
 
     // Espresso UI Testing dependencies.
-    androidTestCompile (supportTest.espressoCore) {
+    androidTestImplementation (supportTest.espressoCore) {
         espressoExcludes.each { exclude module : "$it" }
     }
 
-    androidTestCompile (supportTest.espressoContrib) {
+    androidTestImplementation (supportTest.espressoContrib) {
         espressoExcludes.each { exclude module : "$it" }
     }
 
-    androidTestCompile (supportTest.espressoIntents) {
+    androidTestImplementation (supportTest.espressoIntents) {
         espressoExcludes.each { exclude module : "$it" }
     }
 
     // app dependencies
-    compile support.appcompat
-    compile support.design
-    compile support.recyclerview
-    compile support.cardview
+    implementation support.appcompat
+    implementation support.design
+    implementation support.recyclerview
+    implementation support.cardview
 
-    apt daggerCompiler
-    compile dagger
-    provided jsr250
+    annotationProcessor daggerCompiler
+    implementation dagger
+    compileOnly jsr250
 
-    compile retrofit
-    compile rxJava
-    compile rxAndroid
+    implementation retrofit
+    implementation rxJava
+    implementation rxAndroid
 }
